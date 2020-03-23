@@ -16,7 +16,7 @@ export PATH=`pwd`/flutter/bin:$PATH
 flutter channel stable
 flutter doctor
 #added by thilanka
-flutter doctor --android-licenses
+#flutter doctor --android-licenses
 #end
 flutter build apk --release
 

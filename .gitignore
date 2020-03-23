@@ -31,10 +31,13 @@
 /build/
 
 # Android related
-# **/android/.gradle
-# **/android/captures/
-# **/android/local.properties
-# **/android/**/GeneratedPluginRegistrant.java
+# **/android/**/gradle-wrapper.jar
+**/android/.gradle
+**/android/captures/
+# **/android/gradlew
+# **/android/gradlew.bat
+**/android/local.properties
+**/android/**/GeneratedPluginRegistrant.java
 
 # Web related
 lib/generated_plugin_registrant.dart

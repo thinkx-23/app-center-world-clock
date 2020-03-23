@@ -15,6 +15,6 @@ public class MainActivity extends FlutterActivity {
   }
 
   public void onCreate(){
-    AppCenter.start(getApplication(), "8969cbb9-f92b-449d-ac69-8e55923bfb85", Analytics.class, Crashes.class);
+    AppCenter.start(getApplication(), "2dfb629d-c512-403f-bc02-5f4c886fd4cf", Analytics.class, Crashes.class);
   }
 }

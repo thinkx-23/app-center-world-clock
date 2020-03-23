@@ -15,6 +15,9 @@ export PATH=`pwd`/flutter/bin:$PATH
 
 flutter channel stable
 flutter doctor
+#added by thilanka
+flutter doctor --android-licenses
+#end
 flutter build apk --release
 
 # copy the APK where AppCenter will find it

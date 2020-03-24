@@ -40,6 +40,7 @@ android {
         versionName flutterVersionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+    //added for config app center
     signingConfigs {
         release {
             storeFile rootProject.file("app/android.keystore")

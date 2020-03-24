@@ -1,3 +1,4 @@
+# to run app in app center
 #!/usr/bin/env bash
 # place this script in project/android/app/
 cd ..

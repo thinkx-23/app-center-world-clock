@@ -23,6 +23,7 @@ void main() {
       driver = await FlutterDriver.connect();
     });
 
+
     // Close the connection to the driver after the tests have completed.
     tearDownAll(() async {
      
@@ -31,23 +32,21 @@ void main() {
       }
     });
 
-  // test('Read and Write File', () async {
-  //   readDataFile();
+  setUp(() async {
+      
+       dataFileMap = await readDataFile();
+    });
 
-  // });
-
-  // test('Write File',() async{
-
-  //   writeDataToFile();
-
-  // });
+    tearDown(() async {
+      writeDataToFile(dataFileMap);      
+    });
 
     test('starts at 0', () async {
-      dataFileMap = await readDataFile();
+      //dataFileMap = await readDataFile();
       // Use the `driver.getText` method to verify the counter starts at 0.
       dataFileMap['itemCount']= 0;
       expect(await driver.getText(counterTextFinder), dataFileMap['itemCount'].toString());
-       writeDataToFile(dataFileMap);
+      
     });
 
     test('increments the counter', () async {
@@ -62,27 +61,16 @@ void main() {
 
 void writeDataToFile(Map<String, dynamic> jon) async{
   final File file = File('test_resources/data.json');
-  //final Map<String, dynamic> dataJson = await readDataFile();
-  print ("data write ----- ");
-  //print ("data write ----- "+dataJson);
-   print ("data write ----- "+jsonEncode(jon));
-  // print ("data write ----- "+dataJson['username']);
+  print ("data write ----- "+jsonEncode(jon));
   await file.writeAsString(jsonEncode(jon));
 }
 
 Future<Map<String, dynamic>> readDataFile() async{
     final file = new File('test_resources/data.json');
     final json = jsonDecode(await file.readAsString()) as Map<String, dynamic>;
+    
+    print ("read file ++++++");
     print(json);
-    final username = json['username'];
-
-    print ("data  ----- "+username);
-    //print ("data  ----- "+json);
-    expect("0", "0");
-    expect(username, "testUser");
-    json['username'] = 'abc';
-    //json['itemCount'] = 10;
-    print ("after  ----- "+json['username']);
 
     return json;
 }

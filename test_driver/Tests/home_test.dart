@@ -1,7 +1,8 @@
 // Imports the Flutter Driver API.
 import 'package:flutter_driver/flutter_driver.dart';
 import 'package:test/test.dart';
-import 'data.dart';
+import '../data.dart';
+import '../Scripts/homePage.dart';
 
 
 void main() {
@@ -9,8 +10,8 @@ void main() {
     // First, define the Finders and use them to locate widgets from the
     // test suite. Note: the Strings provided to the `byValueKey` method must
     // be the same as the Strings we used for the Keys in step 1.
-    final counterTextFinder = find.byValueKey('counter');
-    final buttonFinder = find.byValueKey('increment');
+    //final counterTextFinder = find.byValueKey('counter');
+    //final buttonFinder = find.byValueKey('increment');
 
     FlutterDriver driver;
 
@@ -50,25 +51,9 @@ void main() {
     test('increments the counter', () async {
       // First, tap the button.
       await driver.tap(buttonFinder);
-      dataFileMap['itemCount']= 10;
+      dataFileMap['itemCount']= 11;
       // Then, verify the counter text is incremented by 1.
       expect(await driver.getText(counterTextFinder), "1");
     });
   });
 }
-
-// void writeDataToFile(Map<String, dynamic> jon) async{
-//   final File file = File('test_resources/data.json');
-//   print ("data write ----- "+jsonEncode(jon));
-//   await file.writeAsString(jsonEncode(jon));
-// }
-
-// Future<Map<String, dynamic>> readDataFile() async{
-//     final file = new File('test_resources/data.json');
-//     final json = jsonDecode(await file.readAsString()) as Map<String, dynamic>;
-    
-//     print ("read file ++++++");
-//     print(json);
-
-//     return json;
-// }
